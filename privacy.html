@@ -1,0 +1,13 @@
+export const DEFAULT_WEIGHTS={job:35,performance:25,budget:15,power:10,portability:5,value:5,frequency:5};
+const clamp=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
+const targets={
+ car:{psi:1800,gpm:1.4}, furniture:{psi:1700,gpm:1.3}, deck:{psi:2300,gpm:1.7}, patio:{psi:2500,gpm:1.8}, house:{psi:2500,gpm:1.8}, driveway:{psi:2800,gpm:2.2}
+};
+function budgetScore(price,budget){if(!budget)return 75;if(price<=budget)return 100;return clamp(100-((price-budget)/budget)*180);}
+function performanceScore(p,job){const t=targets[job]||targets.patio;const psi=clamp(p.psi/t.psi*100);const gpm=clamp(p.gpm/t.gpm*100);const cu=p.psi*p.gpm;const targetCu=t.psi*t.gpm;const cuScore=clamp(cu/targetCu*100);return Math.round((psi*.3+gpm*.45+cuScore*.25)*10)/10;}
+function powerScore(p,a){return !a.power||a.power==='any'||p.power===a.power?100:20;}
+function portabilityScore(p,a){if(!a.portability)return 70;return clamp(100-Math.abs(p.portability-a.portability)*22);}
+function frequencyScore(p,a){if(a.frequency==='frequent')return p.duty==='heavy'?100:p.duty==='medium'?72:42;if(a.frequency==='monthly')return p.duty==='light'?72:92;return p.duty==='light'?100:p.duty==='medium'?88:72;}
+export function scoreProduct(p,a,w=DEFAULT_WEIGHTS){const job=p.jobs.includes(a.job)?100:25;const performance=performanceScore(p,a.job);const budget=budgetScore(p.price,a.budget);const power=powerScore(p,a);const portability=portabilityScore(p,a);const frequency=frequencyScore(p,a);const score=(job*w.job+performance*w.performance+budget*w.budget+power*w.power+portability*w.portability+p.valueScore*w.value+frequency*w.frequency)/100;return Math.round(score*10)/10;}
+export function rankProducts(products,answers,weights=DEFAULT_WEIGHTS){return products.map(p=>({...p,cleaningUnits:Math.round(p.psi*p.gpm),matchScore:scoreProduct(p,answers,weights)})).sort((a,b)=>b.matchScore-a.matchScore)}
+export function explainMatch(p,a){const out=[];if(p.jobs.includes(a.job))out.push(`Strong fit for ${a.job==='car'?'vehicle':a.job} cleaning.`);else out.push('Usable for this job, but not specifically optimized for it.');const t=targets[a.job]||targets.patio;if(p.gpm>=t.gpm)out.push(`${p.gpm} GPM meets or exceeds the flow target for this job.`);else out.push(`${p.gpm} GPM is below the preferred flow target, so larger areas may take longer.`);if(p.psi>=t.psi)out.push(`${p.psi.toLocaleString()} PSI meets the job's pressure target.`);if(a.power==='any'||!a.power||p.power===a.power)out.push(`Matches your ${p.power} power preference.`);if(a.budget&&p.price<=a.budget)out.push('Fits within your stated budget.');else if(a.budget)out.push('Above your stated budget; a lower-priced match may be better.');return out.slice(0,4)}
