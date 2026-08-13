@@ -1,5 +1,829 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+* {
+  box-sizing: border-box;
+}
 
-export default defineConfig({
-  plugins: [react()]
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  color: #16212b;
+  background: #f7f9fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f7f9fb;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+.app {
+  min-height: 100vh;
+}
+
+.eyebrow {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #087f8c;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 10px;
+  padding: 15px 23px;
+  background: #087f8c;
+  color: white;
+  font-weight: 800;
+  font-size: 0.98rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(8, 127, 140, 0.2);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e3e9ed;
+  backdrop-filter: blur(12px);
+}
+
+.nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 70px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #16212b;
+}
+
+.logo span {
+  color: #087f8c;
+}
+
+.nav nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav nav a,
+.nav nav button {
+  border: 0;
+  background: transparent;
+  color: #4b5b66;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.nav nav a:hover,
+.nav nav button:hover {
+  color: #087f8c;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  background:
+    radial-gradient(circle at 80% 25%, rgba(8, 127, 140, 0.13), transparent 30%),
+    linear-gradient(135deg, #f4f8fa 0%, #ffffff 100%);
+  border-bottom: 1px solid #e2e9ed;
+}
+
+.hero-inner {
+  max-width: 1180px;
+  min-height: 590px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.hero-copy h1 {
+  margin: 16px 0 20px;
+  font-size: clamp(3rem, 6vw, 5.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+}
+
+.hero-copy h1 span {
+  color: #087f8c;
+}
+
+.hero-copy p {
+  max-width: 650px;
+  margin: 0 0 28px;
+  color: #596a76;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.hero-note {
+  margin-top: 13px;
+  color: #788690;
+  font-size: 0.82rem;
+}
+
+.hero-card {
+  padding: 42px;
+  border: 1px solid #dce7eb;
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 25px 70px rgba(25, 51, 66, 0.1);
+}
+
+.hero-card-icon {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: #e7f6f7;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.hero-card-title {
+  font-size: 1.45rem;
+  font-weight: 850;
+  margin-bottom: 12px;
+}
+
+.hero-card p {
+  color: #63727c;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.how-section,
+.jobs-section,
+.guides-section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 100px 24px;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  margin: 10px 0 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+/* =========================
+   STEPS
+========================= */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.step {
+  padding: 30px;
+  background: white;
+  border: 1px solid #e2e9ed;
+  border-radius: 16px;
+}
+
+.step-number {
+  color: #087f8c;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  margin-bottom: 25px;
+}
+
+.step h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.step p {
+  margin: 0;
+  color: #687781;
+  line-height: 1.65;
+}
+
+/* =========================
+   JOBS
+========================= */
+
+.jobs-section {
+  max-width: none;
+  background: #eef4f6;
+}
+
+.jobs-section > * {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.job-grid {
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.job-card {
+  border: 1px solid #dce6ea;
+  border-radius: 16px;
+  background: white;
+  padding: 25px;
+  text-align: left;
+  display: grid;
+  gap: 7px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(22, 45, 57, 0.08);
+}
+
+.job-card > span {
+  font-size: 1.8rem;
+}
+
+.job-card strong {
+  font-size: 1.05rem;
+}
+
+.job-card small {
+  color: #087f8c;
+  font-weight: 750;
+}
+
+/* =========================
+   GUIDES
+========================= */
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.guide-grid article {
+  padding: 30px;
+  background: white;
+  border: 1px solid #e2e9ed;
+  border-radius: 16px;
+}
+
+.guide-grid article > span {
+  color: #087f8c;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.guide-grid h3 {
+  margin: 22px 0 10px;
+  font-size: 1.25rem;
+}
+
+.guide-grid p {
+  color: #697983;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-section {
+  min-height: calc(100vh - 70px);
+  padding: 65px 24px 100px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(8, 127, 140, 0.1), transparent 35%),
+    #f7f9fb;
+}
+
+.quiz-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.quiz-progress {
+  margin-bottom: 70px;
+}
+
+.quiz-progress > span {
+  display: block;
+  color: #687781;
+  font-size: 0.85rem;
+  font-weight: 750;
+  margin-bottom: 10px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dce5e9;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #087f8c;
+  transition: width 0.3s ease;
+}
+
+.quiz-question {
+  margin-bottom: 35px;
+}
+
+.quiz-question h1 {
+  margin: 12px 0 10px;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.quiz-question p {
+  color: #687781;
+  font-size: 1.05rem;
+}
+
+.quiz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 13px;
+}
+
+.quiz-option,
+.quiz-option-wide {
+  border: 1px solid #dce5e9;
+  background: white;
+  border-radius: 14px;
+  text-align: left;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quiz-option {
+  min-height: 150px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.quiz-option-wide {
+  min-height: 68px;
+  padding: 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 750;
+}
+
+.quiz-option:hover,
+.quiz-option-wide:hover {
+  border-color: #087f8c;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(21, 60, 70, 0.08);
+}
+
+.option-icon {
+  font-size: 2rem;
+}
+
+.back-button {
+  margin-top: 30px;
+  border: 0;
+  background: transparent;
+  color: #657680;
+  font-weight: 750;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results-section {
+  padding: 55px 24px 100px;
+}
+
+.results-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.disclosure {
+  margin-bottom: 35px;
+  padding: 13px 17px;
+  border-radius: 8px;
+  background: #fff8e5;
+  border: 1px solid #ead9a4;
+  color: #65531c;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.results-heading {
+  margin-bottom: 40px;
+}
+
+.results-heading h1 {
+  margin: 10px 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: -0.055em;
+}
+
+.results-heading p {
+  color: #687781;
+  font-size: 1.05rem;
+}
+
+.winner-card {
+  padding: 35px;
+  border: 2px solid #087f8c;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 20px 55px rgba(19, 57, 66, 0.08);
+}
+
+.winner-badge {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #e4f4f5;
+  color: #087f8c;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+.winner-content {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 35px;
+  margin-top: 25px;
+}
+
+.match-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  border-radius: 50%;
+  background: #eef8f8;
+  color: #087f8c;
+}
+
+.match-score strong {
+  font-size: 2rem;
+}
+
+.match-score span {
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.product-brand {
+  color: #087f8c;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.winner-info h2 {
+  margin: 6px 0 12px;
+  font-size: 2rem;
+}
+
+.winner-info p {
+  max-width: 700px;
+  color: #687781;
+  line-height: 1.65;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.spec-row div {
+  padding: 14px;
+  border-radius: 10px;
+  background: #f5f8f9;
+}
+
+.spec-row span {
+  display: block;
+  color: #75848d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.spec-row strong {
+  display: block;
+  margin-top: 5px;
+}
+
+.alternatives-title {
+  margin: 65px 0 22px;
+  font-size: 1.6rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.product-card {
+  padding: 25px;
+  border: 1px solid #dfe7ea;
+  border-radius: 15px;
+  background: white;
+}
+
+.product-match {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #087f8c;
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.product-card h3 {
+  margin: 7px 0 10px;
+}
+
+.product-card p {
+  min-height: 80px;
+  color: #687781;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.mini-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 18px 0;
+}
+
+.mini-specs span {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f0f4f5;
+  color: #52636d;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e6ecef;
+  padding-top: 18px;
+}
+
+.product-bottom button {
+  border: 0;
+  background: transparent;
+  color: #087f8c;
+  font-weight: 850;
+}
+
+.restart {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.restart button {
+  border: 0;
+  background: transparent;
+  color: #687781;
+  font-weight: 750;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 55px 24px 25px;
+  background: #15242c;
+  color: white;
+}
+
+.footer > div:first-child {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.footer .logo {
+  color: white;
+}
+
+.footer .logo span {
+  color: #4fc0c8;
+}
+
+.footer p {
+  color: #9eafb7;
+}
+
+.footer-links {
+  max-width: 1180px;
+  margin: 30px auto;
+  display: flex;
+  gap: 25px;
+  color: #bdc9ce;
+  font-size: 0.88rem;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  max-width: 1180px;
+  margin: 25px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #314149;
+  color: #84969f;
+  font-size: 0.78rem;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-top: 60px;
+  }
+
+  .steps,
+  .guide-grid,
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .winner-content {
+    grid-template-columns: 1fr;
+  }
+
+  .match-score {
+    width: 115px;
+    height: 115px;
+  }
+
+  .spec-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 0 16px;
+  }
+
+  .nav nav {
+    gap: 12px;
+  }
+
+  .nav nav a {
+    display: none;
+  }
+
+  .hero-inner,
+  .how-section,
+  .jobs-section,
+  .guides-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-copy h1 {
+    font-size: 3.25rem;
+  }
+
+  .hero-card {
+    padding: 28px;
+  }
+
+  .job-grid,
+  .quiz-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .quiz-question h1 {
+    font-size: 2.5rem;
+  }
+
+  .winner-card {
+    padding: 22px;
+  }
+
+  .winner-content {
+    gap: 20px;
+  }
+
+  .spec-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .results-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+}
