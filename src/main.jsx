@@ -176,50 +176,109 @@ const questions = [
 ];
 
 function scoreProduct(product, answers) {
-  let score = 65;
+  let score = 50;
 
+  // JOB MATCH
   if (answers.job && product.bestFor.includes(answers.job)) {
-    score += 18;
+    score += 20;
+  } else if (answers.job) {
+    score -= 5;
   }
 
+  // BUDGET MATCH
   const budget = answers.budget;
 
   if (budget === "under150" && product.price < 150) score += 15;
-  if (budget === "150to250" && product.price >= 150 && product.price <= 250)
-    score += 15;
-  if (budget === "250to400" && product.price > 250 && product.price <= 400)
-    score += 15;
-  if (budget === "400to600" && product.price > 400 && product.price <= 600)
-    score += 15;
-  if (budget === "over600" && product.price > 600) score += 15;
 
-  if (answers.power === "electric" && product.power === "Electric") score += 8;
-  if (answers.power === "gas" && product.power === "Gas") score += 8;
-  if (answers.power === "either") score += 4;
-
-  if (answers.priority === "price") {
-    if (product.price < 200) score += 8;
+  if (
+    budget === "150to250" &&
+    product.price >= 150 &&
+    product.price <= 250
+  ) {
+    score += 15;
   }
 
-  if (answers.priority === "value") {
-    score += Math.round(product.value / 12);
+  if (
+    budget === "250to400" &&
+    product.price > 250 &&
+    product.price <= 400
+  ) {
+    score += 15;
   }
 
-  if (answers.priority === "power") {
-    score += Math.min(10, Math.round(product.psi / 400));
+  if (
+    budget === "400to600" &&
+    product.price > 400 &&
+    product.price <= 600
+  ) {
+    score += 15;
   }
 
-  if (answers.priority === "maintenance" && product.power === "Electric") {
+  if (budget === "over600" && product.price > 600) {
+    score += 15;
+  }
+
+  // POWER PREFERENCE
+  if (answers.power === "electric" && product.power === "Electric") {
     score += 8;
   }
 
-  if (answers.frequency === "few" && product.price < 350) score += 4;
-  if (answers.frequency === "often" && product.power === "Gas") score += 5;
+  if (answers.power === "gas" && product.power === "Gas") {
+    score += 8;
+  }
 
-  return Math.min(99, score);
+  if (answers.power === "either") {
+    score += 4;
+  }
+
+  // PRIORITY
+  if (answers.priority === "price") {
+    if (product.price < 150) score += 10;
+    else if (product.price < 250) score += 6;
+  }
+
+  if (answers.priority === "value") {
+    score += Math.round(product.value / 10);
+  }
+
+  if (answers.priority === "power") {
+    score += Math.min(12, Math.round(product.psi / 350));
+  }
+
+  if (answers.priority === "maintenance") {
+    if (product.maintenance === "Easy") score += 10;
+    if (product.power === "Electric") score += 4;
+  }
+
+  if (answers.priority === "reliability") {
+    if (product.reliability === "High") score += 10;
+    if (product.reliability === "Medium") score += 5;
+  }
+
+  // FREQUENCY OF USE
+  if (answers.frequency && product.frequency.includes(answers.frequency)) {
+    score += 8;
+  }
+
+  // HEAVIER USE SHOULD FAVOR MORE CAPABLE MACHINES
+  if (
+    (answers.frequency === "weekly" || answers.frequency === "often") &&
+    product.psi >= 2500
+  ) {
+    score += 5;
+  }
+
+  // LIGHTER USE SHOULD FAVOR AFFORDABILITY
+  if (
+    answers.frequency === "few" &&
+    product.price < 300
+  ) {
+    score += 5;
+  }
+
+  // KEEP MATCH SCORE BETWEEN 1 AND 99
+  return Math.max(1, Math.min(99, score));
 }
-
-function Disclosure() {
   return (
     <div className="disclosure">
       <strong>Disclosure:</strong> WasherMatch may earn a commission when you
