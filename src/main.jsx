@@ -13,9 +13,17 @@ const products = [
     price: 249,
     bestFor: ["car", "siding", "deck", "patio", "driveway"],
     value: 94,
+    frequency: ["few", "monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
     description:
       "A strong all-around electric pressure washer for homeowners who want substantial cleaning power without gas-engine maintenance.",
   },
+
   {
     id: 2,
     brand: "Greenworks",
@@ -26,9 +34,17 @@ const products = [
     price: 349,
     bestFor: ["siding", "deck", "patio", "driveway"],
     value: 91,
+    frequency: ["monthly", "weekly", "often"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
     description:
       "A higher-powered electric option suited to tougher homeowner cleaning jobs.",
   },
+
   {
     id: 3,
     brand: "Westinghouse",
@@ -39,9 +55,17 @@ const products = [
     price: 279,
     bestFor: ["siding", "patio", "driveway"],
     value: 89,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
     description:
       "High advertised PSI in an electric package designed for demanding residential cleaning.",
   },
+
   {
     id: 4,
     brand: "SIMPSON",
@@ -50,11 +74,19 @@ const products = [
     gpm: 2.5,
     power: "Gas",
     price: 679,
-    bestFor: ["driveway", "commercial", "equipment"],
+    bestFor: ["driveway", "commercial"],
     value: 88,
+    frequency: ["weekly", "often"],
+    maintenance: "Moderate",
+    reliability: "High",
+    retailer: "SIMPSON",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
     description:
       "A serious gas-powered machine for users who need substantially more cleaning capability.",
   },
+
   {
     id: 5,
     brand: "Westinghouse",
@@ -65,11 +97,17 @@ const products = [
     price: 109,
     bestFor: ["car", "siding", "deck", "patio"],
     value: 93,
+    frequency: ["few", "monthly"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
     description:
       "A budget-friendly electric option for lighter homeowner cleaning tasks.",
   },
 ];
-
 const jobs = [
   ["car", "Car / Vehicle", "🚗"],
   ["siding", "House Siding", "🏠"],
