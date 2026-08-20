@@ -108,6 +108,7 @@ const products = [
       "A budget-friendly electric option for lighter homeowner cleaning tasks.",
   },
 ];
+
 const jobs = [
   ["car", "Car / Vehicle", "🚗"],
   ["siding", "House Siding", "🏠"],
@@ -188,7 +189,9 @@ function scoreProduct(product, answers) {
   // BUDGET MATCH
   const budget = answers.budget;
 
-  if (budget === "under150" && product.price < 150) score += 15;
+  if (budget === "under150" && product.price < 150) {
+    score += 15;
+  }
 
   if (
     budget === "150to250" &&
@@ -269,16 +272,15 @@ function scoreProduct(product, answers) {
   }
 
   // LIGHTER USE SHOULD FAVOR AFFORDABILITY
-  if (
-    answers.frequency === "few" &&
-    product.price < 300
-  ) {
+  if (answers.frequency === "few" && product.price < 300) {
     score += 5;
   }
 
   // KEEP MATCH SCORE BETWEEN 1 AND 99
   return Math.max(1, Math.min(99, score));
 }
+
+function Disclosure() {
   return (
     <div className="disclosure">
       <strong>Disclosure:</strong> WasherMatch may earn a commission when you
@@ -356,9 +358,7 @@ function Home({ onQuiz }) {
           <div className="step">
             <div className="step-number">01</div>
             <h3>Tell us what you're cleaning</h3>
-            <p>
-              Cars, siding, decks, patios, driveways, or heavier work.
-            </p>
+            <p>Cars, siding, decks, patios, driveways, or heavier work.</p>
           </div>
 
           <div className="step">
@@ -580,9 +580,14 @@ function Results({ answers, onRestart }) {
                 </div>
               </div>
 
-              <button className="primary-button">
+              <a
+                className="primary-button"
+                href={winner.affiliateUrl || winner.productUrl || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Check Current Price →
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -610,7 +615,14 @@ function Results({ answers, onRestart }) {
 
               <div className="product-bottom">
                 <strong>~${product.price}</strong>
-                <button>View →</button>
+
+                <a
+                  href={product.affiliateUrl || product.productUrl || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View →
+                </a>
               </div>
             </article>
           ))}
