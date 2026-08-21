@@ -5,86 +5,6 @@ import "./styles.css";
 const products = [
   {
     id: 1,
-    brand: "Greenworks",
-    model: "Pro 2300 PSI",
-    psi: 2300,
-    gpm: 2.3,
-    power: "Electric",
-    price: 249,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 94,
-    frequency: ["few", "monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Greenworks",
-    affiliateUrl: "",
-    productUrl: "",
-    image: "",
-    description:
-      "A strong all-around electric pressure washer for homeowners who want substantial cleaning power without gas-engine maintenance.",
-  },
-  {
-    id: 2,
-    brand: "Greenworks",
-    model: "2500 PSI Brushless",
-    psi: 2500,
-    gpm: 2.3,
-    power: "Electric",
-    price: 349,
-    bestFor: ["siding", "deck", "patio", "driveway"],
-    value: 91,
-    frequency: ["monthly", "weekly", "often"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Greenworks",
-    affiliateUrl: "",
-    productUrl: "",
-    image: "",
-    description:
-      "A higher-powered electric option suited to tougher homeowner cleaning jobs.",
-  },
-  {
-    id: 3,
-    brand: "Westinghouse",
-    model: "WPX3000e",
-    psi: 3000,
-    gpm: 1.76,
-    power: "Electric",
-    price: 279,
-    bestFor: ["siding", "patio", "driveway"],
-    value: 89,
-    frequency: ["monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "Medium",
-    retailer: "Westinghouse",
-    affiliateUrl: "",
-    productUrl: "",
-    image: "",
-    description:
-      "High advertised PSI in an electric package designed for demanding residential cleaning.",
-  },
-  {
-    id: 4,
-    brand: "SIMPSON",
-    model: "Pro Series 3700 PSI",
-    psi: 3700,
-    gpm: 2.5,
-    power: "Gas",
-    price: 679,
-    bestFor: ["driveway", "commercial"],
-    value: 88,
-    frequency: ["weekly", "often"],
-    maintenance: "Moderate",
-    reliability: "High",
-    retailer: "SIMPSON",
-    affiliateUrl: "",
-    productUrl: "",
-    image: "",
-    description:
-      "A serious gas-powered machine for users who need substantially more cleaning capability.",
-  },
-  {
-    id: 5,
     brand: "Westinghouse",
     model: "ePX3050",
     psi: 2100,
@@ -98,10 +18,252 @@ const products = [
     reliability: "Medium",
     retailer: "Westinghouse",
     affiliateUrl: "",
-    productUrl: "",
+    productUrl:
+      "https://westinghouseoutdoorpower.com/products/epx3050-electric-pressure-washer-1",
     image: "",
     description:
-      "A budget-friendly electric option for lighter homeowner cleaning tasks.",
+      "An affordable electric pressure washer designed for cars, patios, decks, siding, and other lighter homeowner cleaning jobs.",
+  },
+
+  {
+    id: 2,
+    brand: "Westinghouse",
+    model: "ePX3100",
+    psi: 2300,
+    gpm: 1.76,
+    power: "Electric",
+    price: 149,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 94,
+    frequency: ["few", "monthly"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl:
+      "https://westinghouseoutdoorpower.com/products/epx3100-electric-pressure-washer",
+    image: "",
+    description:
+      "A compact electric machine offering a useful step up in cleaning power while remaining easy to maintain.",
+  },
+
+  {
+    id: 3,
+    brand: "Westinghouse",
+    model: "ePX3500",
+    psi: 2500,
+    gpm: 1.76,
+    power: "Electric",
+    price: 169,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 95,
+    frequency: ["few", "monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.lowes.com/pd/Westinghouse-ePX3500-Includes-4-Nozzles-Turbo-Nozzle-2500-PSI-1-76-Gallons-GPM-Cold-Water-Electric-Pressure-Washer/5014487411",
+    image: "",
+    description:
+      "A strong value-oriented electric washer for homeowners who want more cleaning power without moving to gas.",
+  },
+
+  {
+    id: 4,
+    brand: "Kärcher",
+    model: "K 2 Power Control",
+    psi: 2000,
+    gpm: 1.45,
+    power: "Electric",
+    price: 156,
+    bestFor: ["car", "siding", "deck", "patio"],
+    value: 87,
+    frequency: ["few", "monthly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Kärcher",
+    affiliateUrl: "",
+    productUrl: "https://www.kaercher.com/us/",
+    image: "",
+    description:
+      "A light-duty electric pressure washer suited to vehicles, patios, outdoor furniture, and routine homeowner cleaning.",
+  },
+
+  {
+    id: 5,
+    brand: "Greenworks",
+    model: "2200 PSI",
+    psi: 2200,
+    gpm: 1.2,
+    power: "Electric",
+    price: 250,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 90,
+    frequency: ["few", "monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.greenworkstools.com/collections/csh-all-pressure-washers",
+    image: "",
+    description:
+      "A versatile electric pressure washer for homeowners who want reliable everyday cleaning performance.",
+  },
+
+  {
+    id: 6,
+    brand: "Greenworks",
+    model: "Pro 2300 PSI",
+    psi: 2300,
+    gpm: 1.2,
+    power: "Electric",
+    price: 330,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 96,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.greenworkstools.com/collections/2300-psi-pressure-washers/products/2300-psi-1-2-gpm-cold-water-electric-pressure-washer",
+    image: "",
+    description:
+      "A premium homeowner electric washer offering an excellent balance of cleaning capability, convenience, and low maintenance.",
+  },
+
+  {
+    id: 7,
+    brand: "Greenworks",
+    model: "2700 PSI",
+    psi: 2700,
+    gpm: 2.3,
+    power: "Electric",
+    price: 300,
+    bestFor: ["siding", "deck", "patio", "driveway"],
+    value: 95,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.greenworkstools.com/collections/csh-all-pressure-washers",
+    image: "",
+    description:
+      "A higher-output electric machine aimed at tougher residential cleaning jobs such as patios and driveways.",
+  },
+
+  {
+    id: 8,
+    brand: "RYOBI",
+    model: "2500 PSI Brushless",
+    psi: 2500,
+    gpm: 1.2,
+    power: "Electric",
+    price: 289,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 91,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "RYOBI",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.homedepot.com/b/Outdoors-Outdoor-Power-Equipment-Pressure-Washers-Electric-Pressure-Washers/RYOBI/N-5yc1vZc38kZ1fu",
+    image: "",
+    description:
+      "A brushless electric pressure washer designed for homeowners who want strong cleaning performance and easy maintenance.",
+  },
+
+  {
+    id: 9,
+    brand: "Kärcher",
+    model: "K 2600 E",
+    psi: 2600,
+    gpm: 1.1,
+    power: "Electric",
+    price: 380,
+    bestFor: ["siding", "deck", "patio", "driveway"],
+    value: 88,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Kärcher",
+    affiliateUrl: "",
+    productUrl:
+      "https://www.homedepot.com/p/Karcher-K-2600-E-2600-Max-PSI-1-1-GPM-Cold-Water-Electric-Pressure-Washer-with-EcoBooster-Nozzle-Included-1-106-214-0/339525964",
+    image: "",
+    description:
+      "A more powerful Kärcher electric machine intended for demanding homeowner cleaning applications.",
+  },
+
+  {
+    id: 10,
+    brand: "Westinghouse",
+    model: "WPX3400e",
+    psi: 3000,
+    gpm: 2.0,
+    power: "Electric",
+    price: 399,
+    bestFor: ["siding", "deck", "patio", "driveway", "commercial"],
+    value: 90,
+    frequency: ["weekly", "often"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl:
+      "https://westinghouseoutdoorpower.com/collections/pressure-washers",
+    image: "",
+    description:
+      "A high-output electric pressure washer for homeowners who regularly tackle larger and tougher cleaning jobs.",
+  },
+
+  {
+    id: 11,
+    brand: "SIMPSON",
+    model: "Pro Series PS61322",
+    psi: 3700,
+    gpm: 2.5,
+    power: "Gas",
+    price: 679,
+    bestFor: ["driveway", "commercial"],
+    value: 92,
+    frequency: ["weekly", "often"],
+    maintenance: "Moderate",
+    reliability: "High",
+    retailer: "SIMPSON",
+    affiliateUrl: "",
+    productUrl:
+      "https://simpsoncleaning.com/products/pro-series-ps61322-50-state/",
+    image: "",
+    description:
+      "A professional-grade gas pressure washer with substantial cleaning power for driveways, large properties, and demanding work.",
+  },
+
+  {
+    id: 12,
+    brand: "SIMPSON",
+    model: "PowerShot PS60869",
+    psi: 4000,
+    gpm: 3.5,
+    power: "Gas",
+    price: 999,
+    bestFor: ["driveway", "commercial"],
+    value: 94,
+    frequency: ["weekly", "often"],
+    maintenance: "Moderate",
+    reliability: "High",
+    retailer: "SIMPSON",
+    affiliateUrl: "",
+    productUrl:
+      "https://simpsoncleaning.com/products/powershot-ps60869/",
+    image: "",
+    description:
+      "A serious high-output gas machine designed for demanding residential and professional cleaning work.",
   },
 ];
 
@@ -181,14 +343,12 @@ function scoreProduct(product, answers) {
     score -= 5;
   }
 
-  const budget = answers.budget;
-
-  if (budget === "under150" && product.price < 150) {
+  if (answers.budget === "under150" && product.price < 150) {
     score += 15;
   }
 
   if (
-    budget === "150to250" &&
+    answers.budget === "150to250" &&
     product.price >= 150 &&
     product.price <= 250
   ) {
@@ -196,7 +356,7 @@ function scoreProduct(product, answers) {
   }
 
   if (
-    budget === "250to400" &&
+    answers.budget === "250to400" &&
     product.price > 250 &&
     product.price <= 400
   ) {
@@ -204,14 +364,14 @@ function scoreProduct(product, answers) {
   }
 
   if (
-    budget === "400to600" &&
+    answers.budget === "400to600" &&
     product.price > 400 &&
     product.price <= 600
   ) {
     score += 15;
   }
 
-  if (budget === "over600" && product.price > 600) {
+  if (answers.budget === "over600" && product.price > 600) {
     score += 15;
   }
 
@@ -373,11 +533,7 @@ function Home({ onQuiz }) {
 
         <div className="job-grid">
           {jobs.map(([id, label, icon]) => (
-            <button
-              className="job-card"
-              key={id}
-              onClick={onQuiz}
-            >
+            <button className="job-card" key={id} onClick={onQuiz}>
               <span>{icon}</span>
               <strong>{label}</strong>
               <small>Find your match →</small>
@@ -577,7 +733,6 @@ function Results({ answers, onRestart }) {
               <button
                 className="primary-button"
                 onClick={() => openProduct(winner)}
-                disabled={!winner.affiliateUrl && !winner.productUrl}
               >
                 Check Current Price →
               </button>
@@ -609,10 +764,7 @@ function Results({ answers, onRestart }) {
               <div className="product-bottom">
                 <strong>~${product.price}</strong>
 
-                <button
-                  onClick={() => openProduct(product)}
-                  disabled={!product.affiliateUrl && !product.productUrl}
-                >
+                <button onClick={() => openProduct(product)}>
                   View →
                 </button>
               </div>
