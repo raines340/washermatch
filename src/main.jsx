@@ -23,7 +23,6 @@ const products = [
     description:
       "A strong all-around electric pressure washer for homeowners who want substantial cleaning power without gas-engine maintenance.",
   },
-
   {
     id: 2,
     brand: "Greenworks",
@@ -44,7 +43,6 @@ const products = [
     description:
       "A higher-powered electric option suited to tougher homeowner cleaning jobs.",
   },
-
   {
     id: 3,
     brand: "Westinghouse",
@@ -65,7 +63,6 @@ const products = [
     description:
       "High advertised PSI in an electric package designed for demanding residential cleaning.",
   },
-
   {
     id: 4,
     brand: "SIMPSON",
@@ -86,7 +83,6 @@ const products = [
     description:
       "A serious gas-powered machine for users who need substantially more cleaning capability.",
   },
-
   {
     id: 5,
     brand: "Westinghouse",
@@ -179,14 +175,12 @@ const questions = [
 function scoreProduct(product, answers) {
   let score = 50;
 
-  // JOB MATCH
   if (answers.job && product.bestFor.includes(answers.job)) {
     score += 20;
   } else if (answers.job) {
     score -= 5;
   }
 
-  // BUDGET MATCH
   const budget = answers.budget;
 
   if (budget === "under150" && product.price < 150) {
@@ -221,7 +215,6 @@ function scoreProduct(product, answers) {
     score += 15;
   }
 
-  // POWER PREFERENCE
   if (answers.power === "electric" && product.power === "Electric") {
     score += 8;
   }
@@ -234,7 +227,6 @@ function scoreProduct(product, answers) {
     score += 4;
   }
 
-  // PRIORITY
   if (answers.priority === "price") {
     if (product.price < 150) score += 10;
     else if (product.price < 250) score += 6;
@@ -258,12 +250,10 @@ function scoreProduct(product, answers) {
     if (product.reliability === "Medium") score += 5;
   }
 
-  // FREQUENCY OF USE
   if (answers.frequency && product.frequency.includes(answers.frequency)) {
     score += 8;
   }
 
-  // HEAVIER USE SHOULD FAVOR MORE CAPABLE MACHINES
   if (
     (answers.frequency === "weekly" || answers.frequency === "often") &&
     product.psi >= 2500
@@ -271,12 +261,10 @@ function scoreProduct(product, answers) {
     score += 5;
   }
 
-  // LIGHTER USE SHOULD FAVOR AFFORDABILITY
   if (answers.frequency === "few" && product.price < 300) {
     score += 5;
   }
 
-  // KEEP MATCH SCORE BETWEEN 1 AND 99
   return Math.max(1, Math.min(99, score));
 }
 
@@ -372,9 +360,7 @@ function Home({ onQuiz }) {
           <div className="step">
             <div className="step-number">03</div>
             <h3>Get your matches</h3>
-            <p>
-              See which machines best fit your particular situation.
-            </p>
+            <p>See which machines best fit your particular situation.</p>
           </div>
         </div>
       </section>
@@ -529,6 +515,14 @@ function Results({ answers, onRestart }) {
 
   const winner = results[0];
 
+  const openProduct = (product) => {
+    const url = product.affiliateUrl || product.productUrl;
+
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <section className="results-section">
       <div className="results-container">
@@ -580,14 +574,13 @@ function Results({ answers, onRestart }) {
                 </div>
               </div>
 
-              <a
+              <button
                 className="primary-button"
-                href={winner.affiliateUrl || winner.productUrl || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => openProduct(winner)}
+                disabled={!winner.affiliateUrl && !winner.productUrl}
               >
                 Check Current Price →
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -616,13 +609,12 @@ function Results({ answers, onRestart }) {
               <div className="product-bottom">
                 <strong>~${product.price}</strong>
 
-                <a
-                  href={product.affiliateUrl || product.productUrl || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => openProduct(product)}
+                  disabled={!product.affiliateUrl && !product.productUrl}
                 >
                   View →
-                </a>
+                </button>
               </div>
             </article>
           ))}
