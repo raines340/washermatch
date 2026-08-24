@@ -242,6 +242,26 @@ const products = [
     image: "",
     description:
       "A professional-grade gas pressure washer with substantial cleaning power for driveways, large properties, and demanding work.",
+  },{
+    id: 13,
+    brand: "PressurePro",
+    model: "4.0G 4000 PSI Cold Pressure Washer",
+    psi: 4000,
+    gpm: 4.0,
+    power: "Gas",
+    price: 2100,
+    bestFor: ["driveway", "commercial"],
+    value: 95,
+    frequency: ["weekly", "often"],
+    maintenance: "Moderate",
+    reliability: "High",
+    retailer: "J.Racenstein",
+    affiliateUrl: "https://goto.jracenstein.com/1GKO1z",
+    productUrl:
+      "https://jracenstein.com/4-0g-4000psi-cold-direct-drive-ar/",
+    image: "",
+    description:
+      "A professional-grade 4.0 GPM, 4000 PSI cold-water pressure washer built for demanding residential and commercial cleaning.",
   },
 
   {
