@@ -111,7 +111,27 @@ const products = [
     description:
       "A versatile electric pressure washer for homeowners who want reliable everyday cleaning performance.",
   },
-
+  {
+    id: 13,
+    brand: "Greenworks",
+    model: "Pro 2300 PSI Brushless Gen 2",
+    psi: 2300,
+    gpm: 1.2,
+    power: "Electric",
+    price: 399,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 96,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "https://greenworkstools.sjv.io/WOP0jZ",
+    productUrl:
+      "https://www.greenworkstools.com/collections/fathers-day-2026/products/2300-psi-1-2-gpm-cold-water-electric-pressure-washer",
+    image: "",
+    description:
+      "A premium all-around electric pressure washer with a brushless motor, 2300 PSI, JettFlow technology, and five nozzles. An excellent choice for homeowners who want strong cleaning performance without gas-engine maintenance.",
+  },
   {
     id: 6,
     brand: "Greenworks",
