@@ -375,26 +375,234 @@ const questions = [
 ];
 
 function scoreProduct(product, answers) {
-  let score = 50;
+  /*
+    WasherMatch scoring system
+
+    The score considers:
+    1. Cleaning job
+    2. Budget
+    3. Gas vs. electric
+    4. Frequency of use
+    5. User's priority
+    6. Actual cleaning capability using PSI + GPM
+  */
+
+  let score = 0;
+
+  // --------------------------------------------------
+  // 1. JOB MATCH — 30 points
+  // --------------------------------------------------
 
   if (answers.job && product.bestFor.includes(answers.job)) {
-    score += 20;
-  } else if (answers.job) {
-    score -= 5;
+    score += 30;
+  } else if (answers.job === "commercial") {
+    if (product.psi >= 3500 && product.gpm >= 2.5) {
+      score += 20;
+    } else if (product.psi >= 3000 && product.gpm >= 2.0) {
+      score += 12;
+    }
+  } else if (answers.job === "driveway") {
+    if (product.psi >= 3000 && product.gpm >= 2.5) {
+      score += 25;
+    } else if (product.psi >= 2500 && product.gpm >= 1.5) {
+      score += 18;
+    } else if (product.psi >= 2000) {
+      score += 12;
+    }
+  } else if (answers.job === "car") {
+    if (product.psi >= 1800 && product.psi <= 3000) {
+      score += 25;
+    } else if (product.psi > 3000) {
+      score += 15;
+    }
+  } else if (answers.job === "siding") {
+    if (product.psi >= 1800 && product.psi <= 3000) {
+      score += 25;
+    } else if (product.psi > 3000) {
+      score += 15;
+    }
+  } else if (answers.job === "deck") {
+    if (product.psi >= 1800 && product.psi <= 3000) {
+      score += 25;
+    } else if (product.psi > 3000) {
+      score += 15;
+    }
+  } else if (answers.job === "patio") {
+    if (product.psi >= 2000 && product.gpm >= 1.5) {
+      score += 25;
+    } else if (product.psi >= 1800) {
+      score += 18;
+    }
   }
 
-  if (answers.budget === "under150" && product.price < 150) {
-    score += 15;
+  // --------------------------------------------------
+  // 2. BUDGET — 20 points
+  // --------------------------------------------------
+
+  const budgetRanges = {
+    under150: [0, 150],
+    "150to250": [150, 250],
+    "250to400": [250, 400],
+    "400to600": [400, 600],
+    over600: [600, Infinity],
+  };
+
+  if (answers.budget && budgetRanges[answers.budget]) {
+    const [min, max] = budgetRanges[answers.budget];
+
+    if (product.price >= min && product.price <= max) {
+      score += 20;
+    } else if (
+      product.price >= min * 0.8 &&
+      product.price <= max * 1.2
+    ) {
+      score += 12;
+    } else if (product.price <= max * 1.5) {
+      score += 5;
+    }
   }
 
-  if (
-    answers.budget === "150to250" &&
-    product.price >= 150 &&
-    product.price <= 250
-  ) {
-    score += 15;
+  // --------------------------------------------------
+  // 3. POWER TYPE — 15 points
+  // --------------------------------------------------
+
+  if (answers.power === "electric") {
+    if (product.power === "Electric") {
+      score += 15;
+    }
   }
 
+  if (answers.power === "gas") {
+    if (product.power === "Gas") {
+      score += 15;
+    }
+  }
+
+  if (answers.power === "either") {
+    score += 8;
+  }
+
+  // --------------------------------------------------
+  // 4. FREQUENCY — 15 points
+  // --------------------------------------------------
+
+  if (answers.frequency) {
+    if (product.frequency.includes(answers.frequency)) {
+      score += 15;
+    }
+
+    if (
+      answers.frequency === "often" &&
+      product.psi >= 3000 &&
+      product.gpm >= 2.5
+    ) {
+      score += 5;
+    }
+
+    if (
+      answers.frequency === "weekly" &&
+      product.psi >= 2500
+    ) {
+      score += 3;
+    }
+
+    if (
+      answers.frequency === "few" &&
+      product.price < 300
+    ) {
+      score += 3;
+    }
+  }
+
+  // --------------------------------------------------
+  // 5. USER PRIORITY — 15 points
+  // --------------------------------------------------
+
+  if (answers.priority === "price") {
+    if (product.price < 150) {
+      score += 15;
+    } else if (product.price < 250) {
+      score += 11;
+    } else if (product.price < 400) {
+      score += 6;
+    }
+  }
+
+  if (answers.priority === "value") {
+    score += Math.round(product.value / 7);
+  }
+
+  if (answers.priority === "power") {
+    const cleaningPower = product.psi * product.gpm;
+
+    if (cleaningPower >= 12000) {
+      score += 15;
+    } else if (cleaningPower >= 8000) {
+      score += 12;
+    } else if (cleaningPower >= 5000) {
+      score += 9;
+    } else if (cleaningPower >= 3000) {
+      score += 6;
+    } else {
+      score += 3;
+    }
+  }
+
+  if (answers.priority === "maintenance") {
+    if (product.maintenance === "Easy") {
+      score += 15;
+    } else if (product.maintenance === "Moderate") {
+      score += 8;
+    }
+  }
+
+  if (answers.priority === "reliability") {
+    if (product.reliability === "High") {
+      score += 15;
+    } else if (product.reliability === "Medium") {
+      score += 8;
+    }
+  }
+
+  // --------------------------------------------------
+  // 6. CLEANING POWER BONUS
+  // --------------------------------------------------
+
+  /*
+    Cleaning power is estimated using PSI × GPM.
+
+    This prevents WasherMatch from treating:
+    4,000 PSI / 4.0 GPM
+
+    as equivalent to:
+
+    4,000 PSI / 1.0 GPM.
+  */
+
+  const cleaningPower = product.psi * product.gpm;
+
+  if (answers.job === "commercial") {
+    if (cleaningPower >= 12000) {
+      score += 10;
+    } else if (cleaningPower >= 8000) {
+      score += 6;
+    }
+  }
+
+  if (answers.job === "driveway") {
+    if (cleaningPower >= 8000) {
+      score += 8;
+    } else if (cleaningPower >= 5000) {
+      score += 5;
+    }
+  }
+
+  // --------------------------------------------------
+  // FINAL SCORE
+  // --------------------------------------------------
+
+  return Math.max(1, Math.min(99, Math.round(score)));
+}
   if (
     answers.budget === "250to400" &&
     product.price > 250 &&
