@@ -5,6 +5,90 @@ import "./styles.css";
 const products = [
   {
     id: 1,
+    brand: "Greenworks",
+    model: "Pro 2300 PSI",
+    psi: 2300,
+    gpm: 2.3,
+    power: "Electric",
+    price: 249,
+    bestFor: ["car", "siding", "deck", "patio", "driveway"],
+    value: 94,
+    frequency: ["few", "monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
+    description:
+      "A strong all-around electric pressure washer for homeowners who want substantial cleaning power without gas-engine maintenance.",
+  },
+
+  {
+    id: 2,
+    brand: "Greenworks",
+    model: "2500 PSI Brushless",
+    psi: 2500,
+    gpm: 2.3,
+    power: "Electric",
+    price: 349,
+    bestFor: ["siding", "deck", "patio", "driveway"],
+    value: 91,
+    frequency: ["monthly", "weekly", "often"],
+    maintenance: "Easy",
+    reliability: "High",
+    retailer: "Greenworks",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
+    description:
+      "A higher-powered electric option suited to tougher homeowner cleaning jobs.",
+  },
+
+  {
+    id: 3,
+    brand: "Westinghouse",
+    model: "WPX3000e",
+    psi: 3000,
+    gpm: 1.76,
+    power: "Electric",
+    price: 279,
+    bestFor: ["siding", "patio", "driveway"],
+    value: 89,
+    frequency: ["monthly", "weekly"],
+    maintenance: "Easy",
+    reliability: "Medium",
+    retailer: "Westinghouse",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
+    description:
+      "High advertised PSI in an electric package designed for demanding residential cleaning.",
+  },
+
+  {
+    id: 4,
+    brand: "SIMPSON",
+    model: "Pro Series 3700 PSI",
+    psi: 3700,
+    gpm: 2.5,
+    power: "Gas",
+    price: 679,
+    bestFor: ["driveway", "commercial"],
+    value: 88,
+    frequency: ["weekly", "often"],
+    maintenance: "Moderate",
+    reliability: "High",
+    retailer: "SIMPSON",
+    affiliateUrl: "",
+    productUrl: "",
+    image: "",
+    description:
+      "A serious gas-powered machine for users who need substantially more cleaning capability.",
+  },
+
+  {
+    id: 5,
     brand: "Westinghouse",
     model: "ePX3050",
     psi: 2100,
@@ -18,107 +102,20 @@ const products = [
     reliability: "Medium",
     retailer: "Westinghouse",
     affiliateUrl: "",
-    productUrl:
-      "https://westinghouseoutdoorpower.com/products/epx3050-electric-pressure-washer-1",
+    productUrl: "",
     image: "",
     description:
-      "An affordable electric pressure washer designed for cars, patios, decks, siding, and other lighter homeowner cleaning jobs.",
+      "A budget-friendly electric option for lighter homeowner cleaning tasks.",
   },
 
   {
-    id: 2,
-    brand: "Westinghouse",
-    model: "ePX3100",
-    psi: 2300,
-    gpm: 1.76,
-    power: "Electric",
-    price: 149,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 94,
-    frequency: ["few", "monthly"],
-    maintenance: "Easy",
-    reliability: "Medium",
-    retailer: "Westinghouse",
-    affiliateUrl: "",
-    productUrl:
-      "https://westinghouseoutdoorpower.com/products/epx3100-electric-pressure-washer",
-    image: "",
-    description:
-      "A compact electric machine offering a useful step up in cleaning power while remaining easy to maintain.",
-  },
-
-  {
-    id: 3,
-    brand: "Westinghouse",
-    model: "ePX3500",
-    psi: 2500,
-    gpm: 1.76,
-    power: "Electric",
-    price: 169,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 95,
-    frequency: ["few", "monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "Medium",
-    retailer: "Westinghouse",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.lowes.com/pd/Westinghouse-ePX3500-Includes-4-Nozzles-Turbo-Nozzle-2500-PSI-1-76-Gallons-GPM-Cold-Water-Electric-Pressure-Washer/5014487411",
-    image: "",
-    description:
-      "A strong value-oriented electric washer for homeowners who want more cleaning power without moving to gas.",
-  },
-
-  {
-    id: 4,
-    brand: "Kärcher",
-    model: "K 2 Power Control",
-    psi: 2000,
-    gpm: 1.45,
-    power: "Electric",
-    price: 156,
-    bestFor: ["car", "siding", "deck", "patio"],
-    value: 87,
-    frequency: ["few", "monthly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Kärcher",
-    affiliateUrl: "",
-    productUrl: "https://www.kaercher.com/us/",
-    image: "",
-    description:
-      "A light-duty electric pressure washer suited to vehicles, patios, outdoor furniture, and routine homeowner cleaning.",
-  },
-
-  {
-    id: 5,
-    brand: "Greenworks",
-    model: "2200 PSI",
-    psi: 2200,
-    gpm: 1.2,
-    power: "Electric",
-    price: 250,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 90,
-    frequency: ["few", "monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Greenworks",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.greenworkstools.com/collections/csh-all-pressure-washers",
-    image: "",
-    description:
-      "A versatile electric pressure washer for homeowners who want reliable everyday cleaning performance.",
-  },
-  {
-    id: 13,
+    id: 6,
     brand: "Greenworks",
     model: "Pro 2300 PSI Brushless Gen 2",
     psi: 2300,
     gpm: 1.2,
     power: "Electric",
-    price: 399,
+    price: 400,
     bestFor: ["car", "siding", "deck", "patio", "driveway"],
     value: 96,
     frequency: ["monthly", "weekly"],
@@ -130,140 +127,11 @@ const products = [
       "https://www.greenworkstools.com/collections/fathers-day-2026/products/2300-psi-1-2-gpm-cold-water-electric-pressure-washer",
     image: "",
     description:
-      "A premium all-around electric pressure washer with a brushless motor, 2300 PSI, JettFlow technology, and five nozzles. An excellent choice for homeowners who want strong cleaning performance without gas-engine maintenance.",
-  },
-  {
-    id: 6,
-    brand: "Greenworks",
-    model: "Pro 2300 PSI",
-    psi: 2300,
-    gpm: 1.2,
-    power: "Electric",
-    price: 330,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 96,
-    frequency: ["monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Greenworks",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.greenworkstools.com/collections/2300-psi-pressure-washers/products/2300-psi-1-2-gpm-cold-water-electric-pressure-washer",
-    image: "",
-    description:
-      "A premium homeowner electric washer offering an excellent balance of cleaning capability, convenience, and low maintenance.",
+      "A premium all-around electric pressure washer with a brushless motor, 2300 PSI, JettFlow technology, and five nozzles.",
   },
 
   {
     id: 7,
-    brand: "Greenworks",
-    model: "2700 PSI",
-    psi: 2700,
-    gpm: 2.3,
-    power: "Electric",
-    price: 300,
-    bestFor: ["siding", "deck", "patio", "driveway"],
-    value: 95,
-    frequency: ["monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Greenworks",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.greenworkstools.com/collections/csh-all-pressure-washers",
-    image: "",
-    description:
-      "A higher-output electric machine aimed at tougher residential cleaning jobs such as patios and driveways.",
-  },
-
-  {
-    id: 8,
-    brand: "RYOBI",
-    model: "2500 PSI Brushless",
-    psi: 2500,
-    gpm: 1.2,
-    power: "Electric",
-    price: 289,
-    bestFor: ["car", "siding", "deck", "patio", "driveway"],
-    value: 91,
-    frequency: ["monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "RYOBI",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.homedepot.com/b/Outdoors-Outdoor-Power-Equipment-Pressure-Washers-Electric-Pressure-Washers/RYOBI/N-5yc1vZc38kZ1fu",
-    image: "",
-    description:
-      "A brushless electric pressure washer designed for homeowners who want strong cleaning performance and easy maintenance.",
-  },
-
-  {
-    id: 9,
-    brand: "Kärcher",
-    model: "K 2600 E",
-    psi: 2600,
-    gpm: 1.1,
-    power: "Electric",
-    price: 380,
-    bestFor: ["siding", "deck", "patio", "driveway"],
-    value: 88,
-    frequency: ["monthly", "weekly"],
-    maintenance: "Easy",
-    reliability: "High",
-    retailer: "Kärcher",
-    affiliateUrl: "",
-    productUrl:
-      "https://www.homedepot.com/p/Karcher-K-2600-E-2600-Max-PSI-1-1-GPM-Cold-Water-Electric-Pressure-Washer-with-EcoBooster-Nozzle-Included-1-106-214-0/339525964",
-    image: "",
-    description:
-      "A more powerful Kärcher electric machine intended for demanding homeowner cleaning applications.",
-  },
-
-  {
-    id: 10,
-    brand: "Westinghouse",
-    model: "WPX3400e",
-    psi: 3000,
-    gpm: 2.0,
-    power: "Electric",
-    price: 399,
-    bestFor: ["siding", "deck", "patio", "driveway", "commercial"],
-    value: 90,
-    frequency: ["weekly", "often"],
-    maintenance: "Easy",
-    reliability: "Medium",
-    retailer: "Westinghouse",
-    affiliateUrl: "",
-    productUrl:
-      "https://westinghouseoutdoorpower.com/collections/pressure-washers",
-    image: "",
-    description:
-      "A high-output electric pressure washer for homeowners who regularly tackle larger and tougher cleaning jobs.",
-  },
-
-  {
-    id: 11,
-    brand: "SIMPSON",
-    model: "Pro Series PS61322",
-    psi: 3700,
-    gpm: 2.5,
-    power: "Gas",
-    price: 679,
-    bestFor: ["driveway", "commercial"],
-    value: 92,
-    frequency: ["weekly", "often"],
-    maintenance: "Moderate",
-    reliability: "High",
-    retailer: "SIMPSON",
-    affiliateUrl: "",
-    productUrl:
-      "https://simpsoncleaning.com/products/pro-series-ps61322-50-state/",
-    image: "",
-    description:
-      "A professional-grade gas pressure washer with substantial cleaning power for driveways, large properties, and demanding work.",
-  },{
-    id: 13,
     brand: "PressurePro",
     model: "4.0G 4000 PSI Cold Pressure Washer",
     psi: 4000,
@@ -282,28 +150,6 @@ const products = [
     image: "",
     description:
       "A professional-grade 4.0 GPM, 4000 PSI cold-water pressure washer built for demanding residential and commercial cleaning.",
-  },
-
-  {
-    id: 12,
-    brand: "SIMPSON",
-    model: "PowerShot PS60869",
-    psi: 4000,
-    gpm: 3.5,
-    power: "Gas",
-    price: 999,
-    bestFor: ["driveway", "commercial"],
-    value: 94,
-    frequency: ["weekly", "often"],
-    maintenance: "Moderate",
-    reliability: "High",
-    retailer: "SIMPSON",
-    affiliateUrl: "",
-    productUrl:
-      "https://simpsoncleaning.com/products/powershot-ps60869/",
-    image: "",
-    description:
-      "A serious high-output gas machine designed for demanding residential and professional cleaning work.",
   },
 ];
 
@@ -375,234 +221,58 @@ const questions = [
 ];
 
 function scoreProduct(product, answers) {
-  /*
-    WasherMatch scoring system
-
-    The score considers:
-    1. Cleaning job
-    2. Budget
-    3. Gas vs. electric
-    4. Frequency of use
-    5. User's priority
-    6. Actual cleaning capability using PSI + GPM
-  */
-
-  let score = 0;
-
-  // --------------------------------------------------
-  // 1. JOB MATCH — 30 points
-  // --------------------------------------------------
-
-  if (answers.job && product.bestFor.includes(answers.job)) {
-    score += 30;
-  } else if (answers.job === "commercial") {
-    if (product.psi >= 3500 && product.gpm >= 2.5) {
-      score += 20;
-    } else if (product.psi >= 3000 && product.gpm >= 2.0) {
-      score += 12;
-    }
-  } else if (answers.job === "driveway") {
-    if (product.psi >= 3000 && product.gpm >= 2.5) {
-      score += 25;
-    } else if (product.psi >= 2500 && product.gpm >= 1.5) {
-      score += 18;
-    } else if (product.psi >= 2000) {
-      score += 12;
-    }
-  } else if (answers.job === "car") {
-    if (product.psi >= 1800 && product.psi <= 3000) {
-      score += 25;
-    } else if (product.psi > 3000) {
-      score += 15;
-    }
-  } else if (answers.job === "siding") {
-    if (product.psi >= 1800 && product.psi <= 3000) {
-      score += 25;
-    } else if (product.psi > 3000) {
-      score += 15;
-    }
-  } else if (answers.job === "deck") {
-    if (product.psi >= 1800 && product.psi <= 3000) {
-      score += 25;
-    } else if (product.psi > 3000) {
-      score += 15;
-    }
-  } else if (answers.job === "patio") {
-    if (product.psi >= 2000 && product.gpm >= 1.5) {
-      score += 25;
-    } else if (product.psi >= 1800) {
-      score += 18;
-    }
-  }
-
-  // --------------------------------------------------
-  // 2. BUDGET — 20 points
-  // --------------------------------------------------
-
-  const budgetRanges = {
-    under150: [0, 150],
-    "150to250": [150, 250],
-    "250to400": [250, 400],
-    "400to600": [400, 600],
-    over600: [600, Infinity],
-  };
-
-  if (answers.budget && budgetRanges[answers.budget]) {
-    const [min, max] = budgetRanges[answers.budget];
-
-    if (product.price >= min && product.price <= max) {
-      score += 20;
-    } else if (
-      product.price >= min * 0.8 &&
-      product.price <= max * 1.2
-    ) {
-      score += 12;
-    } else if (product.price <= max * 1.5) {
-      score += 5;
-    }
-  }
-
-  // --------------------------------------------------
-  // 3. POWER TYPE — 15 points
-  // --------------------------------------------------
-
-  if (answers.power === "electric") {
-    if (product.power === "Electric") {
-      score += 15;
-    }
-  }
-
-  if (answers.power === "gas") {
-    if (product.power === "Gas") {
-      score += 15;
-    }
-  }
-
-  if (answers.power === "either") {
-    score += 8;
-  }
-
-  // --------------------------------------------------
-  // 4. FREQUENCY — 15 points
-  // --------------------------------------------------
-
-  if (answers.frequency) {
-    if (product.frequency.includes(answers.frequency)) {
-      score += 15;
-    }
-
-    if (
-      answers.frequency === "often" &&
-      product.psi >= 3000 &&
-      product.gpm >= 2.5
-    ) {
-      score += 5;
-    }
-
-    if (
-      answers.frequency === "weekly" &&
-      product.psi >= 2500
-    ) {
-      score += 3;
-    }
-
-    if (
-      answers.frequency === "few" &&
-      product.price < 300
-    ) {
-      score += 3;
-    }
-  }
-
-  // --------------------------------------------------
-  // 5. USER PRIORITY — 15 points
-  // --------------------------------------------------
-
-  if (answers.priority === "price") {
-    if (product.price < 150) {
-      score += 15;
-    } else if (product.price < 250) {
-      score += 11;
-    } else if (product.price < 400) {
-      score += 6;
-    }
-  }
-
-  if (answers.priority === "value") {
-    score += Math.round(product.value / 7);
-  }
-
-  if (answers.priority === "power") {
-    const cleaningPower = product.psi * product.gpm;
-
-    if (cleaningPower >= 12000) {
-      score += 15;
-    } else if (cleaningPower >= 8000) {
-      score += 12;
-    } else if (cleaningPower >= 5000) {
-      score += 9;
-    } else if (cleaningPower >= 3000) {
-      score += 6;
-    } else {
-      score += 3;
-    }
-  }
-
-  if (answers.priority === "maintenance") {
-    if (product.maintenance === "Easy") {
-      score += 15;
-    } else if (product.maintenance === "Moderate") {
-      score += 8;
-    }
-  }
-
-  if (answers.priority === "reliability") {
-    if (product.reliability === "High") {
-      score += 15;
-    } else if (product.reliability === "Medium") {
-      score += 8;
-    }
-  }
-
-  // --------------------------------------------------
-  // 6. CLEANING POWER BONUS
-  // --------------------------------------------------
-
-  /*
-    Cleaning power is estimated using PSI × GPM.
-
-    This prevents WasherMatch from treating:
-    4,000 PSI / 4.0 GPM
-
-    as equivalent to:
-
-    4,000 PSI / 1.0 GPM.
-  */
+  let score = 45;
 
   const cleaningPower = product.psi * product.gpm;
 
+  // JOB
+  if (answers.job && product.bestFor.includes(answers.job)) {
+    score += 20;
+  }
+
   if (answers.job === "commercial") {
-    if (cleaningPower >= 12000) {
-      score += 10;
-    } else if (cleaningPower >= 8000) {
-      score += 6;
+    if (product.psi >= 3500 && product.gpm >= 2.5) {
+      score += 15;
+    } else if (product.psi >= 3000 && product.gpm >= 2) {
+      score += 8;
     }
   }
 
   if (answers.job === "driveway") {
-    if (cleaningPower >= 8000) {
-      score += 8;
-    } else if (cleaningPower >= 5000) {
-      score += 5;
+    if (cleaningPower >= 10000) {
+      score += 10;
+    } else if (cleaningPower >= 6000) {
+      score += 7;
+    } else if (cleaningPower >= 4000) {
+      score += 4;
     }
   }
 
-  // --------------------------------------------------
-  // FINAL SCORE
-  // --------------------------------------------------
+  if (answers.job === "car") {
+    if (product.psi >= 1800 && product.psi <= 3000) {
+      score += 8;
+    }
+  }
 
-  return Math.max(1, Math.min(99, Math.round(score)));
-}
+  if (answers.job === "siding" || answers.job === "deck") {
+    if (product.psi >= 1800 && product.psi <= 3000) {
+      score += 7;
+    }
+  }
+
+  // BUDGET
+  if (answers.budget === "under150" && product.price < 150) {
+    score += 15;
+  }
+
+  if (
+    answers.budget === "150to250" &&
+    product.price >= 150 &&
+    product.price <= 250
+  ) {
+    score += 15;
+  }
+
   if (
     answers.budget === "250to400" &&
     product.price > 250 &&
@@ -623,42 +293,24 @@ function scoreProduct(product, answers) {
     score += 15;
   }
 
+  // POWER TYPE
   if (answers.power === "electric" && product.power === "Electric") {
-    score += 8;
+    score += 12;
   }
 
   if (answers.power === "gas" && product.power === "Gas") {
-    score += 8;
+    score += 12;
   }
 
   if (answers.power === "either") {
-    score += 4;
+    score += 5;
   }
 
-  if (answers.priority === "price") {
-    if (product.price < 150) score += 10;
-    else if (product.price < 250) score += 6;
-  }
-
-  if (answers.priority === "value") {
-    score += Math.round(product.value / 10);
-  }
-
-  if (answers.priority === "power") {
-    score += Math.min(12, Math.round(product.psi / 350));
-  }
-
-  if (answers.priority === "maintenance") {
-    if (product.maintenance === "Easy") score += 10;
-    if (product.power === "Electric") score += 4;
-  }
-
-  if (answers.priority === "reliability") {
-    if (product.reliability === "High") score += 10;
-    if (product.reliability === "Medium") score += 5;
-  }
-
-  if (answers.frequency && product.frequency.includes(answers.frequency)) {
+  // FREQUENCY
+  if (
+    answers.frequency &&
+    product.frequency.includes(answers.frequency)
+  ) {
     score += 8;
   }
 
@@ -673,7 +325,63 @@ function scoreProduct(product, answers) {
     score += 5;
   }
 
-  return Math.max(1, Math.min(99, score));
+  // PRIORITY
+  if (answers.priority === "price") {
+    if (product.price < 150) {
+      score += 12;
+    } else if (product.price < 250) {
+      score += 8;
+    } else if (product.price < 400) {
+      score += 4;
+    }
+  }
+
+  if (answers.priority === "value") {
+    score += Math.round(product.value / 10);
+  }
+
+  if (answers.priority === "power") {
+    if (cleaningPower >= 12000) {
+      score += 15;
+    } else if (cleaningPower >= 8000) {
+      score += 12;
+    } else if (cleaningPower >= 5000) {
+      score += 9;
+    } else {
+      score += 5;
+    }
+  }
+
+  if (answers.priority === "maintenance") {
+    if (product.maintenance === "Easy") {
+      score += 12;
+    } else if (product.maintenance === "Moderate") {
+      score += 6;
+    }
+
+    if (product.power === "Electric") {
+      score += 3;
+    }
+  }
+
+  if (answers.priority === "reliability") {
+    if (product.reliability === "High") {
+      score += 12;
+    } else if (product.reliability === "Medium") {
+      score += 6;
+    }
+  }
+
+  // EXTRA POWER CONSIDERATION
+  if (answers.job === "commercial" && cleaningPower >= 10000) {
+    score += 8;
+  }
+
+  if (answers.job === "driveway" && cleaningPower >= 6000) {
+    score += 5;
+  }
+
+  return Math.max(1, Math.min(99, Math.round(score)));
 }
 
 function Disclosure() {
@@ -754,7 +462,9 @@ function Home({ onQuiz }) {
           <div className="step">
             <div className="step-number">01</div>
             <h3>Tell us what you're cleaning</h3>
-            <p>Cars, siding, decks, patios, driveways, or heavier work.</p>
+            <p>
+              Cars, siding, decks, patios, driveways, or heavier work.
+            </p>
           </div>
 
           <div className="step">
@@ -768,7 +478,9 @@ function Home({ onQuiz }) {
           <div className="step">
             <div className="step-number">03</div>
             <h3>Get your matches</h3>
-            <p>See which machines best fit your particular situation.</p>
+            <p>
+              See which machines best fit your particular situation.
+            </p>
           </div>
         </div>
       </section>
@@ -781,7 +493,11 @@ function Home({ onQuiz }) {
 
         <div className="job-grid">
           {jobs.map(([id, label, icon]) => (
-            <button className="job-card" key={id} onClick={onQuiz}>
+            <button
+              className="job-card"
+              key={id}
+              onClick={onQuiz}
+            >
               <span>{icon}</span>
               <strong>{label}</strong>
               <small>Find your match →</small>
@@ -919,8 +635,11 @@ function Results({ answers, onRestart }) {
 
   const winner = results[0];
 
+  const getProductUrl = (product) =>
+    product.affiliateUrl || product.productUrl;
+
   const openProduct = (product) => {
-    const url = product.affiliateUrl || product.productUrl;
+    const url = getProductUrl(product);
 
     if (url) {
       window.open(url, "_blank", "noopener,noreferrer");
@@ -952,6 +671,7 @@ function Results({ answers, onRestart }) {
 
             <div className="winner-info">
               <div className="product-brand">{winner.brand}</div>
+
               <h2>{winner.model}</h2>
 
               <p>{winner.description}</p>
@@ -1059,7 +779,9 @@ function App() {
   const [page, setPage] = useState("home");
   const [answers, setAnswers] = useState({});
 
-  const startQuiz = () => setPage("quiz");
+  const startQuiz = () => {
+    setPage("quiz");
+  };
 
   const completeQuiz = (finalAnswers) => {
     setAnswers(finalAnswers);
@@ -1086,7 +808,10 @@ function App() {
       )}
 
       {page === "results" && (
-        <Results answers={answers} onRestart={restart} />
+        <Results
+          answers={answers}
+          onRestart={restart}
+        />
       )}
 
       <Footer />
