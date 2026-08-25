@@ -778,7 +778,9 @@ function Footer() {
 function App() {
   const [page, setPage] = useState("home");
   const [answers, setAnswers] = useState({});
-
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
   const startQuiz = () => {
     setPage("quiz");
   };
