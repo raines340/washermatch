@@ -404,7 +404,7 @@ function Header({ onQuiz }) {
 
         <nav>
           <button onClick={onQuiz}>Find My Washer</button>
-          <a href="#guides">Buying Guides</a>
+          <a href="/buying-guides/">Buying Guides</a>
           <a href="#about">About</a>
         </nav>
       </div>
@@ -762,7 +762,7 @@ function Footer() {
       </div>
 
       <div className="footer-links">
-        <a href="#guides">Buying Guides</a>
+       <a href="/buying-guides/">Buying Guides</a>
         <a href="#about">About</a>
         <a href="#privacy">Privacy</a>
         <a href="#terms">Terms</a>
